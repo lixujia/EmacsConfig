@@ -1,9 +1,9 @@
-;;; my-env.el --- 
+;;; my-func.el --- 
 
-;; Copyright 2013 Li Xujia
+;; Copyright 2014 Li Xujia
 ;;
 ;; Author: lxj@UB64
-;; Version: $Id: my-env.el,v 0.0 2013/12/26 01:33:22 lxj Exp $
+;; Version: $Id: my-func.el,v 0.0 2014/07/23 02:57:56 lxj Exp $
 ;; Keywords: 
 ;; X-URL: not distributed yet
 
@@ -26,16 +26,11 @@
 ;; 
 
 ;; Put this file into your load-path and the following into your ~/.emacs:
-;;   (require 'my-env)
+;;   (require 'my-func)
 
 ;;; Code:
 
-(setenv "PATH" (concat (getenv "PATH") ":" "/opt/arm-tools/bin"))
-(setenv "PATH" (concat (getenv "PATH") ":" "/opt/uClinux/bfin-linux-uclibc/bin"))
-(setenv "PATH" (concat (getenv "PATH") ":" "/opt/uClinux/bfin-uclinux/bin"))
-(setenv "PATH" (concat (getenv "PATH") ":" "~/exec/scripts"))
-
-(provide 'my-env)
+(provide 'my-func)
 (eval-when-compile
   (require 'cl))
 
@@ -45,7 +40,11 @@
 ;;;;##########################################################################
 
 
+(defun zh_date ()
+  "Get the date of today, with Chinese language and format"
+  (let ((wday (string-to-int (format-time-string "%w"))))
+        (concat (format-time-string "%Y年%m月%d日 ")
+                (nth wday '(" " "星期一" "星期二" "星期三" "星期四" "星期五" "星期六" "星期日")))))
 
 
-
-;;; my-env.el ends here
+;;; my-func.el ends here

@@ -9,6 +9,9 @@
 
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+;(add-to-list 'load-path "~/.emacs.d/manual-added")
+
+;(load "astyle-hooks.el")
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -70,19 +73,19 @@
 (require 'template-simple)
 
 ; smex 
-(global-set-key [(meta x)] (lambda ()
-                             (interactive)
-                             (or (boundp 'smex-cache)
-                                 (smex-initialize))
-                             (global-set-key [(meta x)] 'smex)
-                             (smex)))
-
-(global-set-key [(shift meta x)] (lambda ()
-                                   (interactive)
-                                   (or (boundp 'smex-cache)
-                                       (smex-initialize))
-                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-                                   (smex-major-mode-commands)))
+;(global-set-key [(meta x)] (lambda ()
+;                             (interactive)
+;                             (or (boundp 'smex-cache)
+;                                 (smex-initialize))
+;                             (global-set-key [(meta x)] 'smex)
+;                             (smex)))
+;
+;(global-set-key [(shift meta x)] (lambda ()
+;                                   (interactive)
+;                                   (or (boundp 'smex-cache)
+;                                       (smex-initialize))
+;                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+;                                   (smex-major-mode-commands)))
 
 (add-to-list 'load-path "~/.emacs.d/yasnippet-0.6.1c")
 (require 'yasnippet)
@@ -97,10 +100,15 @@
 (require 'linum-ex)
 (global-linum-mode 1)
 
-(require 'undo-tree)
-(global-undo-tree-mode)
+;(require 'undo-tree)
+;(global-undo-tree-mode)
+
+;(require 'ido-mode)
+(ido-mode 1)
+
+;(require 'sr-speedbar)
+;(setq sr-speedbar-right-side 1)
 
 (provide 'my-init)
-
 
 
