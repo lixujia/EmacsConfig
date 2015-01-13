@@ -47,4 +47,29 @@
                 (nth wday '(" " "星期一" "星期二" "星期三" "星期四" "星期五" "星期六" "星期日")))))
 
 
+(defun print_region (beg end)
+  "Print the text in region"
+  (interactive "r")
+  (message "%s" (buffer-substring beg end)))
+
+(defun string-remove-char (s c)
+  "Remove all chars c from string s"
+  (if (string-equal s "")
+      ""
+    (let ((1st-char (substring s 0 1))
+          (spare (substring s 1)))
+      (if (search 1st-char c)
+          (string-remove-char spare c)
+        (concat 1st-char (string-remove-char spare c))))))
+
+(defun how-many-hex-char (beg end)
+  "Count the hex bytes number in the region, and print to echo area."
+  (interactive "r")
+  (let ((s (buffer-substring beg end)))
+    (if (string-match "^\s*\\([0-9a-fA-F][0-9a-fA-F]\s\\)+[0-9a-fA-F][0-9a-fA-F]\s*$" s)
+        (message "%d" (/ (string-bytes (string-remove-char s " \t\n\r")) 2))
+      (message "The region is not HEX text"))))
+
+
+
 ;;; my-func.el ends here

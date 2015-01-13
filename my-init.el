@@ -23,6 +23,10 @@
 
 (el-get 'sync)
 
+(add-to-list 'load-path "~/.emacs.d/myMolokai")
+;(require 'molokai-theme-kit)
+(require 'molokai-theme)
+
 ;(require 'cc-mode+)
 (require 'cc-mode)
 

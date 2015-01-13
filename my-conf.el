@@ -52,6 +52,9 @@
       scroll-margin 3
       scroll-conservatively 10000)
 
+; 栈大小和elisp函数的递归深度设置
+(setq max-lisp-eval-depth 10000)
+(setq max-specpdl-size 20000)
 
 ;; For my language ﻿code setting ﻿(UTF-8)
 (setq current-language-environment "UTF-8")
@@ -61,6 +64,13 @@
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+
+(set-default-font "Ubuntu Mono:pixelsize=16")
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset
+                    (font-spec :family "WenQuanYi Micro Hei" :size 16)))
+
 
 ; 缩进4个空格的风格
 (setq c-default-style "linux"
