@@ -44,8 +44,7 @@
   "Get the date of today, with Chinese language and format"
   (let ((wday (string-to-int (format-time-string "%w"))))
         (concat (format-time-string "%Y年%m月%d日 ")
-                (nth wday '(" " "星期一" "星期二" "星期三" "星期四" "星期五" "星期六" "星期日")))))
-
+                (nth wday '("星期日" "星期一" "星期二" "星期三" "星期四" "星期五" "星期六" "星期日")))))
 
 (defun print_region (beg end)
   "Print the text in region"
