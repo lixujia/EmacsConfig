@@ -65,11 +65,11 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-(set-default-font "Ubuntu Mono:pixelsize=16")
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font)
-                    charset
-                    (font-spec :family "WenQuanYi Micro Hei" :size 16)))
+; (set-default-font "Ubuntu Mono:pixelsize=16")
+; (dolist (charset '(kana han symbol cjk-misc bopomofo))
+;   (set-fontset-font (frame-parameter nil 'font)
+;                     charset
+;                     (font-spec :family "WenQuanYi Micro Hei" :size 16)))
 
 
 ; 缩进4个空格的风格

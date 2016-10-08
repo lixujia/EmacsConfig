@@ -23,19 +23,19 @@
 
 (el-get 'sync)
 
-(add-to-list 'load-path "~/.emacs.d/myMolokai")
-;(require 'molokai-theme-kit)
-(require 'molokai-theme)
+; (add-to-list 'load-path "~/.emacs.d/myMolokai")
+; ;(require 'molokai-theme-kit)
+; (require 'molokai-theme)
 
 (require 'tabbar)
 (tabbar-mode 1)
 
-;;; activate ecb
-(require 'ecb)
-(require 'ecb-autoloads)
+; ;;; activate ecb
+; (require 'ecb)
+; (require 'ecb-autoloads)
 
-;(require 'cc-mode+)
-(require 'cc-mode)
+; ;(require 'cc-mode+)
+; (require 'cc-mode)
 
 (require 'python-mode)
 
@@ -92,28 +92,28 @@
 
 (require 'template-simple)
 
-(require 'auto-complete-clang)
-(global-set-key (kbd "C-.") 'ac-complete-clang)
+; (require 'auto-complete-clang)
+; (global-set-key (kbd "C-.") 'ac-complete-clang)
 
-(defun my:ac-c-headers-init ()
-    (require 'auto-complete-c-headers)
-      (add-to-list 'ac-sources 'ac-source-c-headers)
-      (add-to-list 'achead:include-directories '"/usr/local/include")
-      (add-to-list 'achead:include-directories '"/usr/include/x86_64-linux-gnu")
-      (add-to-list 'achead:include-directories '"/usr/include")
-      (add-to-list 'achead:include-directories '"."))
-
-(add-hook 'c++-mode-hook 'my:ac-c-headers-init)
-(add-hook 'c-mode-hook 'my:ac-c-headers-init)
-
-(setq ac-clang-flags (list "-I/usr/local/include"
-                           "-I/usr/include/x86_64-linux-gnu"
-                           "-I/usr/include"
-                           "-I/usr/include/linux"
-                           "-I/usr/include/c++/4.8"
-                           "-I/usr/include/c++/4.8/tr1"
-                           "-I/usr/include/x86_64-linux-gnu/c++/4.8"
-                           "-I/home/lxj/codes/MyIncludes"))
+; (defun my:ac-c-headers-init ()
+;     (require 'auto-complete-c-headers)
+;       (add-to-list 'ac-sources 'ac-source-c-headers)
+;       (add-to-list 'achead:include-directories '"/usr/local/include")
+;       (add-to-list 'achead:include-directories '"/usr/include/x86_64-linux-gnu")
+;       (add-to-list 'achead:include-directories '"/usr/include")
+;       (add-to-list 'achead:include-directories '"."))
+; 
+; (add-hook 'c++-mode-hook 'my:ac-c-headers-init)
+; (add-hook 'c-mode-hook 'my:ac-c-headers-init)
+; 
+; (setq ac-clang-flags (list "-I/usr/local/include"
+;                            "-I/usr/include/x86_64-linux-gnu"
+;                            "-I/usr/include"
+;                            "-I/usr/include/linux"
+;                            "-I/usr/include/c++/4.8"
+;                            "-I/usr/include/c++/4.8/tr1"
+;                            "-I/usr/include/x86_64-linux-gnu/c++/4.8"
+;                            "-I/home/lxj/codes/MyIncludes"))
 ; smex 
 ;(global-set-key [(meta x)] (lambda ()
 ;                             (interactive)
@@ -137,16 +137,29 @@
 (yas/global-mode 1)
 (yas/minor-mode 1)
 
-(require 'xcscope+)
+; (require 'xcscope+)
 
 (require 'linum-ex)
 (global-linum-mode 1)
 
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+
+(require 'virtualenvwrapper)
+(venv-initialize-eshell)
+(venv-initialize-interactive-shells)
+(setq venv-location "~/PyEnv/")
+
+(require 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;(require 'undo-tree)
 ;(global-undo-tree-mode)
 
-;(require 'ido-mode)
-(ido-mode 1)
+; (require 'ido-gnus)
+; (ido-mode 1)
 
 ;(require 'sr-speedbar)
 ;(setq sr-speedbar-right-side 1)
