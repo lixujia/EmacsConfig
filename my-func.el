@@ -69,6 +69,4 @@
         (message "%d" (/ (string-bytes (string-remove-char s " \t\n\r")) 2))
       (message "The region is not HEX text"))))
 
-
-
 ;;; my-func.el ends here
